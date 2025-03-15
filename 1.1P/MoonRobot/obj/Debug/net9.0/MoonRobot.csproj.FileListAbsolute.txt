@@ -1,0 +1,14 @@
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/bin/Debug/net9.0/MoonRobot
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/bin/Debug/net9.0/MoonRobot.deps.json
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/bin/Debug/net9.0/MoonRobot.runtimeconfig.json
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/bin/Debug/net9.0/MoonRobot.dll
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/bin/Debug/net9.0/MoonRobot.pdb
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.GeneratedMSBuildEditorConfig.editorconfig
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.AssemblyInfoInputs.cache
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.AssemblyInfo.cs
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.csproj.CoreCompileInputs.cache
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.dll
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/refint/MoonRobot.dll
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.pdb
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/MoonRobot.genruntimeconfig.cache
+/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/1.1P/MoonRobot/obj/Debug/net9.0/ref/MoonRobot.dll
