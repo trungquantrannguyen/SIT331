@@ -133,6 +133,40 @@ namespace MoonRobot
         {
             if (!this.isLanded)
             {
+                Console.WriteLine("Enter the landing coordinate...");
+                Console.WriteLine("Enter the X coordinate: ");
+                string x = Console.ReadLine();
+                while (int.Parse(x) > map)
+                {
+                    Console.WriteLine("X coordinate must be in the map, please enter: ");
+                    x = Console.ReadLine();
+                }
+                Console.WriteLine("Enter the Y coordinate: ");
+                string y = Console.ReadLine();
+                while (int.Parse(y) > map)
+                {
+                    Console.WriteLine("Y coordinate must be in the map, please enter: ");
+                    y = Console.ReadLine();
+                }
+                Console.WriteLine("Enter the direction N for North, E for East, W for West, S for South: ");
+                string direction = Console.ReadLine();
+                this.x = int.Parse(x);
+                this.y = int.Parse(y);
+                switch (direction.ToUpper())
+                {
+                    case "N":
+                        this.direction = Directions.NORTH;
+                        break;
+                    case "E":
+                        this.direction = Directions.EAST;
+                        break;
+                    case "W":
+                        this.direction = Directions.WEST;
+                        break;
+                    case "S":
+                        this.direction = Directions.SOUTH;
+                        break;
+                }
                 this.isLanded = true;
             }
             return;

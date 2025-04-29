@@ -1,0 +1,11 @@
+.swagger-ui img {
+  content: url("/images/deakin-logo.png");
+}
+
+.swagger-ui .topbar .download-url-wrapper .select-label select {
+  border-color: #ef1c25;
+}
+
+.swagger-ui .info .title small:last-child {
+  background-color: #ef1c25 !important;
+}

@@ -1,0 +1,162 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotTests/RobotTests.csproj": {}
+  },
+  "projects": {
+    "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotController/RobotController.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotController/RobotController.csproj",
+        "projectName": "RobotController",
+        "projectPath": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotController/RobotController.csproj",
+        "packagesPath": "/Users/maksymslavnenko/.nuget/packages/",
+        "outputPath": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotController/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/maksymslavnenko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[13.2.47, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-preview.5.22307.18/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotTests/RobotTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotTests/RobotTests.csproj",
+        "projectName": "RobotTests",
+        "projectPath": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotTests/RobotTests.csproj",
+        "packagesPath": "/Users/maksymslavnenko/.nuget/packages/",
+        "outputPath": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotTests/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/maksymslavnenko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotController/RobotController.csproj": {
+                "projectPath": "/Users/maksymslavnenko/Documents/work/deakin/SIT331/tasks/2.2P/robot-controller/RobotController/RobotController.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.7.1, )"
+            },
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[13.2.47, )"
+            },
+            "System.IO.Abstractions.TestingHelpers": {
+              "target": "Package",
+              "version": "[13.2.47, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-preview.5.22307.18/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

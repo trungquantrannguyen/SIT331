@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "2eQ4YeO0dF0=",
+  "success": true,
+  "projectFilePath": "/Users/trungquan/Documents/vscode/Deakin/Backend Serivices/4.2C/3.2P.csproj",
+  "expectedPackageFiles": [
+    "/Users/trungquan/.nuget/packages/fastmember.signed/1.5.0/fastmember.signed.1.5.0.nupkg.sha512",
+    "/Users/trungquan/.nuget/packages/microsoft.aspnetcore.openapi/9.0.2/microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
+    "/Users/trungquan/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512",
+    "/Users/trungquan/.nuget/packages/npgsql/6.0.5/npgsql.6.0.5.nupkg.sha512",
+    "/Users/trungquan/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Npgsql' 6.0.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-x9vc-6hfv-hg8c",
+      "libraryId": "Npgsql",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}
