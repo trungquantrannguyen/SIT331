@@ -636,3 +636,4 @@
 /Users/trungquan/vscode/Deakin/Backend Serivices/6.1P/robot-controller-api/obj/Debug/net9.0/robot-controller-api.genruntimeconfig.cache
 /Users/trungquan/vscode/Deakin/Backend Serivices/6.1P/robot-controller-api/obj/Debug/net9.0/ref/robot-controller-api.dll
 /Users/trungquan/vscode/Deakin/Backend Serivices/6.1P/robot-controller-api/bin/Debug/net9.0/BCrypt-Net-Next.dll
+/Users/trungquan/vscode/Deakin/Backend Serivices/6.1P/robot-controller-api/obj/Debug/net9.0/robot-controller-api.sourcelink.json

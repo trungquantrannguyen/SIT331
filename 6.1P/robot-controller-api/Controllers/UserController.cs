@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+using robot_controller_api.Services;
 using Microsoft.AspNetCore.Mvc;
 using robot_controller_api.Models;
 using robot_controller_api.Persistence;
@@ -7,12 +7,12 @@ using robot_controller_api.Persistence;
 namespace robot_controller_api.Controllers;
 
 [ApiController]
-[Route("users")]
+[Route("api/users")]
 public class UsersController : ControllerBase
 {
     private readonly IUserDataAccess _userDataAccess;
 
-    public UsersController(IUserDataAccess userDataAccess)
+    public UsersController(IUserDataAccess userDataAccess, IPasswordHashService passwordHashService)
     {
         _userDataAccess = userDataAccess;
     }
@@ -85,18 +85,7 @@ public class UsersController : ControllerBase
             return Conflict("A user with this email already exists.");
         }
 
-        var plainPassword = newUser.PasswordHash;
-
-        var hasher = new PasswordHasher<User>();
-        newUser.PasswordHash = hasher.HashPassword(newUser, plainPassword);
-
-        newUser.Role = string.IsNullOrWhiteSpace(newUser.Role) ? "User" : newUser.Role;
-        newUser.CreatedDate = DateTime.Now;
-        newUser.ModifiedDate = DateTime.Now;
-
         var createdUser = _userDataAccess.AddUser(newUser);
-
-        createdUser.PasswordHash = string.Empty;
 
         return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
     }
@@ -159,10 +148,11 @@ public class UsersController : ControllerBase
             return BadRequest("Password is required.");
         }
 
-        var hasher = new PasswordHasher<User>();
-        var passwordHash = hasher.HashPassword(existingUser, loginModel.Password);
-
-        var success = _userDataAccess.UpdateLoginDetails(id, loginModel.Email, passwordHash);
+        var success = _userDataAccess.UpdateLoginDetails(
+            id,
+            loginModel.Email,
+            loginModel.Password
+        );
 
         if (!success)
         {

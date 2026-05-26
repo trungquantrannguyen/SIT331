@@ -3,9 +3,8 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
-using robot_controller_api.Models;
 using robot_controller_api.Persistence;
 
 namespace robot_controller_api.Authentication;
@@ -30,8 +29,9 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
         Response.Headers["WWW-Authenticate"] = @"Basic realm=""Access to the robot controller.""";
 
         var endpoint = Context.GetEndpoint();
+        var allowAnonymous = endpoint?.Metadata?.GetMetadata<IAllowAnonymous>() != null;
 
-        if (endpoint?.Metadata?.GetMetadata<Microsoft.AspNetCore.Authorization.IAllowAnonymous>() != null)
+        if (allowAnonymous)
         {
             return Task.FromResult(AuthenticateResult.NoResult());
         }
@@ -70,23 +70,9 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
             var email = credentials[0];
             var password = credentials[1];
 
-            var user = _userDataAccess.GetUserByEmail(email);
+            var user = _userDataAccess.AuthenticateUser(email, password);
 
             if (user == null)
-            {
-                Response.StatusCode = 401;
-                return Task.FromResult(AuthenticateResult.Fail("Authentication failed."));
-            }
-
-            var hasher = new PasswordHasher<User>();
-
-            var verificationResult = hasher.VerifyHashedPassword(
-                user,
-                user.PasswordHash,
-                password
-            );
-
-            if (verificationResult == PasswordVerificationResult.Failed)
             {
                 Response.StatusCode = 401;
                 return Task.FromResult(AuthenticateResult.Fail("Authentication failed."));

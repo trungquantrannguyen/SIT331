@@ -1,4 +1,5 @@
 using robot_controller_api.Persistence;
+using robot_controller_api.Services;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using robot_controller_api.Authentication;
@@ -34,8 +35,7 @@ builder.Services.AddScoped<IMapDataAccess, MapRepository>();
 builder.Services.AddScoped<IUserDataAccess, UserRepository>();
 builder.Services.AddScoped<RobotContext>();
 
-var app = builder.Build();
-
+builder.Services.AddScoped<IPasswordHashService, BCryptPasswordHashService>();
 
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>(
@@ -52,6 +52,8 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim(ClaimTypes.Role, "Admin", "User"));
 });
 
+var app = builder.Build();
+
 app.UseSwagger();
 
 app.UseSwaggerUI(setup =>
@@ -65,7 +67,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseHttpsRedirection();
-
 
 app.MapControllers();
 
