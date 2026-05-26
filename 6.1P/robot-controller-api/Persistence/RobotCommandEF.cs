@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace robot_controller_api.Persistence;
+
+public class RobotCommandEF
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public string? Description { get; set; }
+
+    public bool IsMoveCommand { get; set; }
+
+    public DateTime CreatedDate { get; set; }
+
+    public DateTime ModifiedDate { get; set; }
+}
