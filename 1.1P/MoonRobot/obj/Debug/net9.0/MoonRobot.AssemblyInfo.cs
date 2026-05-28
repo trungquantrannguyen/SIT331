@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoonRobot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30a53303055d89979d3bed00bd3fb938635be525")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5a4b85cffc27d67251c418439c0e749794a1941")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoonRobot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoonRobot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

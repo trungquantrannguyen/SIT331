@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Bjwfmiuhe4w=",
+  "dgSpecHash": "LNJrBUOf9c4=",
   "success": true,
   "projectFilePath": "/Users/trungquan/vscode/Deakin/Backend Serivices/6.1P/robot-controller-api/robot-controller-api.csproj",
   "expectedPackageFiles": [
     "/Users/trungquan/.nuget/packages/bcrypt.net-next/4.2.0/bcrypt.net-next.4.2.0.nupkg.sha512",
-    "/Users/trungquan/.nuget/packages/entityframeworkcore.scaffolding.handlebars/10.0.0/entityframeworkcore.scaffolding.handlebars.10.0.0.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/fastmember.signed/1.5.0/fastmember.signed.1.5.0.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
@@ -54,9 +53,9 @@
     "/Users/trungquan/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/system.text.json/9.0.3/system.text.json.9.0.3.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
+    "/Users/trungquan/.nuget/packages/microsoft.netcore.app.ref/9.0.14/microsoft.netcore.app.ref.9.0.14.nupkg.sha512",
     "/Users/trungquan/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.14/microsoft.aspnetcore.app.ref.9.0.14.nupkg.sha512",
-    "/Users/trungquan/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.14/microsoft.netcore.app.host.osx-arm64.9.0.14.nupkg.sha512",
-    "/Users/trungquan/.nuget/packages/microsoft.netcore.app.ref/9.0.14/microsoft.netcore.app.ref.9.0.14.nupkg.sha512"
+    "/Users/trungquan/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.14/microsoft.netcore.app.host.osx-arm64.9.0.14.nupkg.sha512"
   ],
   "logs": []
 }

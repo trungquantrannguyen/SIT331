@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
-    <PackageReference Include="EntityFrameworkCore.Scaffolding.Handlebars" Version="10.0.0" />
     <PackageReference Include="FastMember.Signed" Version="1.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

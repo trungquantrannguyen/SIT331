@@ -1,6 +1,3 @@
-using _2._1P.Dtos;
-using _2._1P.Entities;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 
@@ -8,101 +5,120 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-var commands = new List<Command>{
-    new() { Id = 1, CommandName = "MOVE", IsMove = true },
-    new() { Id = 2, CommandName = "TURN_LEFT", IsMove = false },
-    new()  { Id = 3, CommandName = "TURN_RIGHT", IsMove = false },
-    new() { Id = 4, CommandName = "PICK_UP", IsMove = false },
-    new()  { Id = 5, CommandName = "PLACE", IsMove = false }
+var robotCommands = new List<RobotCommand>
+{
+    new RobotCommand(1, "LEFT", false, "Turns the robot 90 degrees to the left."),
+    new RobotCommand(2, "RIGHT", false, "Turns the robot 90 degrees to the right."),
+    new RobotCommand(3, "PLACE", false, "Places the robot on the map using X, Y and direction."),
+    new RobotCommand(4, "MOVE", true, "Moves the robot one square forward in the direction it is facing.")
 };
 
-var map = new Map { X = 5, Y = 5 };
+var robotMap = new RobotMap(5);
 
-app.MapGet("/", () => "Hello, Robot!");
+app.MapGet("/", () => Results.Ok("Hello, Robot!"));
 
-app.MapGet("/robot-commands", () =>
-{
-    return commands;
-});
+app.MapGet("/robot-commands", () => Results.Ok(robotCommands));
 
 app.MapGet("/robot-commands/move", () =>
 {
-    return commands.Where(c => c.IsMove);
+    var moveCommands = robotCommands.Where(command => command.IsMoveCommand).ToList();
+    return Results.Ok(moveCommands);
 });
 
-app.MapGet("/robot-commands/{id}", (int id) =>
+app.MapGet("/robot-commands/{id:int}", (int id) =>
 {
-    var command = commands.Find(c => c.Id == id);
-    if (command == null)
-    {
-        return Results.NotFound("Command not found.");
-    }
-    else
-    {
-        return Results.Ok(command);
-    }
-
+    var command = robotCommands.FirstOrDefault(command => command.Id == id);
+    return command is null ? Results.NotFound($"Robot command with ID {id} was not found.") : Results.Ok(command);
 });
 
-app.MapPost("/robot-commands", (CreateCommandDto newCommand) =>
+app.MapPost("/robot-commands", (RobotCommand command) =>
 {
-    var command = new Command
+    if (string.IsNullOrWhiteSpace(command.Name))
     {
-        Id = commands.Max(c => c.Id) + 1,
-        CommandName = newCommand.CommandName,
-        IsMove = newCommand.IsMove
+        return Results.BadRequest("Command name is required.");
+    }
+
+    if (robotCommands.Any(existing => existing.Id == command.Id))
+    {
+        return Results.BadRequest($"Robot command with ID {command.Id} already exists.");
+    }
+
+    var newCommand = command with
+    {
+        Name = command.Name.Trim().ToUpperInvariant(),
+        Description = command.Description?.Trim() ?? string.Empty
     };
-    commands.Add(command);
 
-    return Results.Created($"/robot-commands/{command.Id}", command);
+    robotCommands.Add(newCommand);
+    return Results.Created($"/robot-commands/{newCommand.Id}", newCommand);
 });
 
-app.MapPut("/robot-commands/{id}", (int id, UpdateCommandDto updateCommand) =>
+app.MapPut("/robot-commands/{id:int}", (int id, RobotCommand updatedCommand) =>
 {
-    var command = commands.Find(c => c.Id == id);
-    if (command == null)
+    var commandIndex = robotCommands.FindIndex(command => command.Id == id);
+
+    if (commandIndex == -1)
     {
-        return Results.NotFound();
+        return Results.NotFound($"Robot command with ID {id} was not found.");
     }
-    if (commands.Find(c => c.CommandName == updateCommand.CommandName) != null)
+
+    if (string.IsNullOrWhiteSpace(updatedCommand.Name))
     {
-        return Results.Conflict("Command name already exists.");
+        return Results.BadRequest("Command name is required.");
     }
-    command.CommandName = updateCommand.CommandName;
-    command.IsMove = updateCommand.IsMove;
+
+    robotCommands[commandIndex] = updatedCommand with
+    {
+        Id = id,
+        Name = updatedCommand.Name.Trim().ToUpperInvariant(),
+        Description = updatedCommand.Description?.Trim() ?? string.Empty
+    };
+
     return Results.NoContent();
 });
 
-app.MapGet("robot-map", () =>
+app.MapGet("/robot-map", () => Results.Ok(robotMap));
+
+app.MapGet("/robot-map/{coordinate}", (string coordinate) =>
 {
-    return Results.Ok(map);
+    var parts = coordinate.Split('-');
+
+    if (parts.Length != 2 || !int.TryParse(parts[0], out var x) || !int.TryParse(parts[1], out var y))
+    {
+        return Results.BadRequest("Coordinate must be in the form x-y, for example 0-0 or 3-5.");
+    }
+
+    var isOnMap = robotMap.ContainsCoordinate(x, y);
+    return Results.Ok(isOnMap);
 });
 
-app.MapGet("robot-map/{coordinate}", (string coordinate) =>
+app.MapPut("/robot-map", (RobotMap updatedMap) =>
 {
-    var coordinates = coordinate.Split('-');
-    int x = int.Parse(coordinates[0]);
-    int y = int.Parse(coordinates[1]);
+    if (!updatedMap.IsValid())
+    {
+        return Results.BadRequest("Robot map must be square and have a size between 2x2 and 100x100.");
+    }
 
-    return Results.Ok(map.X >= x && map.Y >= y);
-});
-
-app.MapPut("robot-map", (UpdateMapDto updateMap) =>
-{
-    if (updateMap.X != updateMap.Y)
-    {
-        return Results.BadRequest("Map must be square.");
-    }
-    if (updateMap.X < 2 || updateMap.Y < 2)
-    {
-        return Results.BadRequest("Map cannot be smaller than 2x2.");
-    }
-    if (updateMap.X > 100 || updateMap.Y > 100)
-    {
-        return Results.BadRequest("Map cannot be larger than 100x100.");
-    }
-    map.X = updateMap.X;
-    map.Y = updateMap.Y;
+    robotMap = updatedMap;
     return Results.NoContent();
 });
+
 app.Run();
+
+public record RobotCommand(int Id, string Name, bool IsMoveCommand, string? Description);
+
+public record RobotMap(int Size)
+{
+    public int Width => Size;
+    public int Height => Size;
+
+    public bool IsValid()
+    {
+        return Size >= 2 && Size <= 100 && Width == Height;
+    }
+
+    public bool ContainsCoordinate(int x, int y)
+    {
+        return x >= 0 && x < Width && y >= 0 && y < Height;
+    }
+}

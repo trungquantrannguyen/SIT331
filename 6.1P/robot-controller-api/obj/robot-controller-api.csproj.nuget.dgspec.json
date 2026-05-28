@@ -48,10 +48,6 @@
               "target": "Package",
               "version": "[4.2.0, )"
             },
-            "EntityFrameworkCore.Scaffolding.Handlebars": {
-              "target": "Package",
-              "version": "[10.0.0, )"
-            },
             "FastMember.Signed": {
               "target": "Package",
               "version": "[1.5.0, )"

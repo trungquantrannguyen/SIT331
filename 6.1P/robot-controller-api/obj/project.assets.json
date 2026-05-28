@@ -11,12 +11,6 @@
           "lib/netstandard2.1/BCrypt-Net-Next.dll": {}
         }
       },
-      "EntityFrameworkCore.Scaffolding.Handlebars/10.0.0": {
-        "type": "package",
-        "build": {
-          "build/EntityFrameworkCore.Scaffolding.Handlebars.targets": {}
-        }
-      },
       "FastMember.Signed/1.5.0": {
         "type": "package",
         "compile": {
@@ -1052,41 +1046,6 @@
         "lib/netstandard2.1/BCrypt-Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
         "readme.md"
-      ]
-    },
-    "EntityFrameworkCore.Scaffolding.Handlebars/10.0.0": {
-      "sha512": "h7j0wi2QU4FiMUFgmk7VlczqFPrtgv5BnX4ybyXa8pnoehBx3C8EaEfdNmE5CHYXOYiF2wMTEfrrxelU4Iv+FQ==",
-      "type": "package",
-      "path": "entityframeworkcore.scaffolding.handlebars/10.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "build/EntityFrameworkCore.Scaffolding.Handlebars.targets",
-        "entityframeworkcore.scaffolding.handlebars.10.0.0.nupkg.sha512",
-        "entityframeworkcore.scaffolding.handlebars.nuspec",
-        "icon.png",
-        "lib/net10.0/CodeTemplates/CSharpDbContext/DbContext.hbs",
-        "lib/net10.0/CodeTemplates/CSharpDbContext/Partials/DbConstructor.hbs",
-        "lib/net10.0/CodeTemplates/CSharpDbContext/Partials/DbImports.hbs",
-        "lib/net10.0/CodeTemplates/CSharpDbContext/Partials/DbOnConfiguring.hbs",
-        "lib/net10.0/CodeTemplates/CSharpDbContext/Partials/DbSets.hbs",
-        "lib/net10.0/CodeTemplates/CSharpEntityType/Class.hbs",
-        "lib/net10.0/CodeTemplates/CSharpEntityType/Partials/Constructor.hbs",
-        "lib/net10.0/CodeTemplates/CSharpEntityType/Partials/Imports.hbs",
-        "lib/net10.0/CodeTemplates/CSharpEntityType/Partials/Properties.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptDbContext/DbContext.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptDbContext/Partials/DbConstructor.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptDbContext/Partials/DbImports.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptDbContext/Partials/DbOnConfiguring.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptDbContext/Partials/DbSets.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptEntityType/Class.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptEntityType/Partials/Constructor.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptEntityType/Partials/Imports.hbs",
-        "lib/net10.0/CodeTemplates/TypeScriptEntityType/Partials/Properties.hbs",
-        "lib/net10.0/EntityFrameworkCore.Scaffolding.Handlebars.dll",
-        "lib/net10.0/EntityFrameworkCore.Scaffolding.Handlebars.runtimeconfig.json",
-        "lib/net10.0/EntityFrameworkCore.Scaffolding.Handlebars.xml"
       ]
     },
     "FastMember.Signed/1.5.0": {
@@ -3298,7 +3257,6 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "BCrypt.Net-Next >= 4.2.0",
-      "EntityFrameworkCore.Scaffolding.Handlebars >= 10.0.0",
       "FastMember.Signed >= 1.5.0",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.3",
       "Npgsql >= 9.0.3",
@@ -3352,10 +3310,6 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.2.0, )"
-          },
-          "EntityFrameworkCore.Scaffolding.Handlebars": {
-            "target": "Package",
-            "version": "[10.0.0, )"
           },
           "FastMember.Signed": {
             "target": "Package",
